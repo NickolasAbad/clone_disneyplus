@@ -7,7 +7,7 @@
     }
 
     &__questions {
-        
+
         &__item {
             background-color: #13151d;
             margin-bottom: 16px;
@@ -19,6 +19,16 @@
                 display: block;
                 cursor: pointer;
                 position: relative;
+
+                @media (max-width: 768px) {
+                    font-size: 15px;
+
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        padding-right: 26px;
+                    }
+                }
 
                 &::after {
                     content: '+';
@@ -59,18 +69,48 @@
                             height: 30px;
                             margin-bottom: 16px;
                             list-style: disc;
+
+                            @media (max-width: 768px) {
+                                height: 80px;
+                            }
                         }
                     }
 
                     &__1 {
-                        li:last-child {
-                            margin-bottom: 0;
+
+                        @media (max-width: 768px) {
+                            li {
+                                height: 80px;
+
+                                &:first-child, &:nth-child(4), &:nth-child(5) {
+                                    height: 48px;
+                                }
+
+                                &:nth-child(6) {
+                                    height: 96px;
+                                }
+
+                                &:last-child {
+                                    margin-bottom: 0px;
+        
+        
+                                    @media (max-width: 768px) {
+                                        margin-bottom: 24px;
+                                    }
+                                }
+                            }
                         }
                     }
 
                     &__2 {
-                        li:nth-child(3) {
-                            height: 60px;
+                        li {
+                            &:nth-child(2) {
+                                height: 96px;
+                            }
+
+                            &:nth-child(3) {
+                                height: 120px;
+                            }
                         }
                     }
                 }

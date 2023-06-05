@@ -4,6 +4,8 @@
 @use 'plans';
 @use 'available-devices';
 @use 'faq';
+@use 'footer';
+@use 'header';
 
 @font-face {
     font-family: Avenir;
@@ -22,6 +24,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Avenir, sans-serif;
+    list-style: none;
 }
 
 body {
@@ -42,6 +45,10 @@ body {
 
 .text--big {
     @include text(18px);
+
+    @media (max-width: 768px) {
+        @include text(15px)
+    }
 }
 
 .link-text {
@@ -52,26 +59,50 @@ body {
 
 .text {
     @include text;
+
+
+    @media (max-width: 768px) {
+        @include text(14px)
+    }
 }
 
 .text--small {
-    @include text(12px)
+    @include text(12px);
+
+
+    @media (max-width: 768px) {
+        @include text(11px)
+    }
 }
 
 .title--big {
     @include title(44px);
+
+    @media (max-width: 768px) {
+        @include title(26px)
+    }
 }
 
 .title {
     @include title;
+
+    @media (max-width: 768px) {
+        @include title(24px)
+    }
 }
 
 .title--small {
-    @include title(28px)
+    @include title(28px);
+
+    @media (max-width: 768px) {
+        @include title(22px)
+    }
 }
 
 .button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Avenir, sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
@@ -79,13 +110,37 @@ body {
     height: 60px;
     font-size: 18px;
     color: variaveis.$corTextoSecundario;
-    background-color: #6421ff;
+    background-color: variaveis.$corDeFundoBotaoPrimario;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
     cursor: pointer;
+    text-decoration: none;
+    padding: 8px 14px;
+    border: 1px solid variaveis.$corDeFundoBotaoPrimario;
+
+    &:hover {
+        background-color: lighten(variaveis.$corDeFundoBotaoPrimario, 3%);
+    }
+
+    &--secondary {
+        background-color: variaveis.$corDeFundoBotaoSecundario;
+        border-color: variaveis.$corDeFundoBotaoSecundario;
+
+        &:hover {
+            background-color: lighten(variaveis.$corDeFundoBotaoSecundario, 3%);
+        }
+    }
+
+    &--dark {
+        background-color: rgba(variaveis.$corDeFundoBotaoDark, 0.8);
+        border-color: variaveis.$corTextoSecundario;
+
+        &:hover { 
+            background-color: variaveis.$corTextoSecundario;
+            color: variaveis.$corDeFundo;
+        }
+    }
 }
 
 .image-text-section {
@@ -93,6 +148,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+
+    @media (max-width: 768px) {
+        display: block;
+    }
 
     img {
         max-width: 100%;
@@ -119,6 +178,13 @@ body {
             flex-direction: column;
             justify-content: center;
             width: calc(50% - 5.6vw);
+
+            @media (max-width: 768px) {
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
+        
         }
 
         img {
