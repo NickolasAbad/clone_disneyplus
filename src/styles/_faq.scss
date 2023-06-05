@@ -104,12 +104,14 @@
 
                     &__2 {
                         li {
-                            &:nth-child(2) {
-                                height: 96px;
-                            }
-
-                            &:nth-child(3) {
-                                height: 120px;
+                            @media (max-width: 768px) {
+                                &:nth-child(2) {
+                                    height: 96px;
+                                }
+    
+                                &:nth-child(3) {
+                                    height: 120px;
+                                }
                             }
                         }
                     }
